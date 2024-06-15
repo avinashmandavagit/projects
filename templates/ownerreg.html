@@ -1,0 +1,46 @@
+{% include "head.html" %}
+<style>
+body {
+  background-image: url("https://www.investopedia.com/thmb/SQUkVNIzt4DzPFWDLHeKczaglj8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_PropertyManagement_SasinParaksa-24d8dedc3d094a32b6d1f97f19bb2263.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height:90%;
+}
+</style>
+<script>
+    function validate(){
+        let owner_phone = document.getElementById("owner_phone").value
+        if(owner_phone.length!=10){
+            alert("Phone Number Should be 10")
+            return false
+        }
+        return true
+    }
+</script>
+<form action="ownerreg1" method="post" class="container mt-5 rounded-4 card card-body col-md-4" onsubmit="return validate()">
+    <div>
+        <div>
+            <h6><lable for="owner_name">Owner Name </lable></h6>
+            <input type="text" id="owner_name" name="owner_name" required class="form-control">
+        </div>
+        <div class="mt-2">
+            <h6><lable for="owner_email">Owner Email </lable></h6>
+            <input type="email" id="owner_email" name="owner_email" required class="form-control">
+        </div>
+        <div class="mt-2">
+            <h6><lable for="owner_phone">Owner Phone </lable></h6>
+            <input type="number" id="owner_phone" name="owner_phone" class="form-control">
+        </div>
+        <div class="mt-2">
+            <h6><lable for="owner_password">Owner Password </lable></h6>
+            <input type="password" id="owner_password" name="owner_password" required class="form-control">
+        </div>
+         <div class="mt-2">
+             <h6><lable for="owner_address">Owner Address</lable></h6>
+             <textarea id="owner_address" name="owner_address" rows="4" cols="60" class="form-control"></textarea>
+         </div>
+        <div class="mt-2">
+            <input type="submit" id="Register" value="REGISTER" class="form-control btn btn-info ">
+        </div>
+    </div>
+</form>

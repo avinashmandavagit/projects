@@ -1,0 +1,97 @@
+{% include "ohead.html" %}
+<style>
+body {
+  background-image: url("https://www.investopedia.com/thmb/SQUkVNIzt4DzPFWDLHeKczaglj8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/_PropertyManagement_SasinParaksa-24d8dedc3d094a32b6d1f97f19bb2263.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height:90%;
+}
+</style>
+<script>
+$(document).ready(function(){
+ $("#rent_display").css("display","None")
+ $("#post_type").on("change",()=>{
+    let post_type = $("#post_type").val()
+    if(post_type==='rental'){
+        $("#rent_display").css("display","Block")
+    }else{
+         $("#rent_display").css("display","None")
+    }
+ })
+});
+</script>
+<div class="container">
+    <form action="add_property1" method="post" enctype="multipart/form-data">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="category_id">Category</label></h6>
+                        <select name="category_id" id="category_id" class="form-control">
+                            <option value="">Choose Category</option>
+                            {% for category in categories %}
+                            <option value="{{category['_id']}}">{{category['category_name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="property_title">Property Title</label></h6>
+                        <input type="text" name="property_title" id="property_title" class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="property_image">Property Image</label></h6>
+                        <input type="file" name="property_image" id="property_image" class="form-control">
+                    </div>
+                     <div class="mt-2">
+                        <h6 style="color:#008080"><label for="description">Description</label></h6>
+                         <textarea name="description" id="description" class="form-control"></textarea>
+                    </div>
+                     <div class="mt-2">
+                        <h6 style="color:#008080"><label for="features">Features</label></h6>
+                        <input type="text" name="features" id="features" class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="amount">Amount</label></h6>
+                        <input type="number" name="amount" id="amount" class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="Location">Location</label></h6>
+                        <input type="text" name="location" id="Location" class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="post_type">Post Type</label></h6>
+                        <select name="post_type" id="post_type" class="form-control">
+                            <option value="">Choose Post Type</option>
+                            <option value="rental">Rental</option>
+                            <option value="sale">Sale</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="rent_display">
+                <div class="card p-3">
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="carpet_area">Carpet Area</label></h6>
+                        <input type="text" name="carpet_area" id="carpet_area" class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="rooms">Rooms</label></h6>
+                        <input type="text" name="rooms" id="rooms" class="form-control">
+                    </div>
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="advance">Advance</label></h6>
+                        <input type="text" name="advance" id="advance" class="form-control">
+                    </div>
+
+                    <div class="mt-2">
+                        <h6 style="color:#008080"><label for="rent">Rent</label></h6>
+                        <input type="text" name="rent" id="rent" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-2">
+            <input type="submit" value="SUBMIT" id="submit" class=" btn btn-primary">
+        </div>
+    </form>
+</div>
